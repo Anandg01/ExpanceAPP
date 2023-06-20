@@ -34,7 +34,7 @@ const sendemail=await tranEmailApi.sendTransacEmail({
         to:receiver,
         subject: 'Sending with SendGrid is Fun',
       //  text: 'and easy to do anywhere, even with Node.js',
-      htmlContent: `<a href="http://localhost:2000/password/resetpassword/${id}">Reset password</a>`,
+      htmlContent: `<a href="http://3.86.103.50:2000/password/resetpassword/${id}">Reset password</a>`,
  
      /*  subject:'Reset the password',
         textContent:`your password is ${user[0].password}`*/

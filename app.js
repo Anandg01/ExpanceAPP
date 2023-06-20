@@ -19,7 +19,7 @@ const expanceRout=require('./router/expance')
 const Forgotpassword=require('./models/resetpassword')
 const fileUrl=require('./models/downloadFileurl')
 app.use(cors())
-app.use(helmet())
+//app.use(helmet())
 
 const accessLogStream=fs.createWriteStream(
     path.join(__dirname, 'access.log'),
@@ -30,13 +30,14 @@ app.use(morgan('combined',{stream:accessLogStream}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.use('/user',userRout)
 app.use('/password',resetpasword)
 
 app.use(expanceRout)
+
 app.use((req, res)=>{
-    res.send(`<h1>Not a page</h1>`)
+    console.log('usr', req.url)
+res.sendFile(path.join(__dirname,'public',req.url))
 })
 
 User.hasMany(Expance);
